@@ -1,0 +1,21 @@
+<?php
+/**
+ * Controller: Report
+ * Date: 2013-11-11 10:07
+ * 
+ */
+class ReportController extends BaseController
+{	
+	public function remainingCapital(){
+		$model = new SellerInvoice();
+		$viewData = array(
+			'title'    => MyLang::out('Report'),
+			'reportSeller' => $model->reportSeller(),
+			'reportShareHolder' => $model->reportShareHolder(),
+			'totalCapital' => DB::table('share_holder')->sum('share_holder_capital'),
+		);
+		return View::make('report.remaining-capital', $viewData);
+	}
+	
+
+}
