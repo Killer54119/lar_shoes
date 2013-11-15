@@ -1,0 +1,42 @@
+input[type="text"] {
+	height:auto!important;
+}
+			
+td.text-right {
+    text-align: right;
+}
+.required:after {
+  content: "*";
+  color:red;
+}
+.icon-chevron-up, .icon-chevron-down {
+    opacity: 0.2;
+    filter:alpha(opacity=20);
+}
+.w-min {
+	width: 83px
+}
+.w-nedium {
+	width: 127px
+}
+.w-large{
+	width: 260px
+}
+.txt-large {
+	font-size: 16px;
+	font-weight: bold;
+	color: #0000FF;
+}
+.left{
+	float:left;
+	padding-right:5px;
+}
+.gray {
+	color: #B8A3A3!important;;
+}
+.red {
+	color:#FF0000;
+}
+.month1{
+background: #e2e2e2;
+}
