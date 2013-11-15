@@ -6,9 +6,9 @@ if(isset($params['col'])) {
 ?>
 {{ Form::select('seller_id', 
                 Seller::lists('seller_name', 'seller_id'), 
-				$sellerId, 
-				array('class' => 'w-min txt-large')
-				) }}
+                $sellerId, 
+                array('class' => 'w-min txt-large')
+                ) }}
 
 <div class="pull-right">
     <a href="/seller-invoice/create" class="btn btn-small btn-success">
@@ -19,8 +19,8 @@ if(isset($params['col'])) {
 
 <script>
 $(function() {
-	$('select[name=seller_id]').change(function() {
-		window.location = '/seller-invoice/search?col=seller_id&kw=' + $(this).val();
-	});
+    $('select[name=seller_id]').change(function() {
+            window.location = '/seller-invoice/search?col=seller_id&kw=' + $(this).val();
+    });
 });	
 </script>

@@ -19,7 +19,7 @@ return array(
         'Create Seller'            => 'Thêm sạp',
         'Seller Address'           => 'Địa chỉ',
         'Seller Note'              => 'Ghi chú',
-        'Back'                     => 'Trở về',
+        'Back'                     => 'D.Sách',
         'Reset'                    => 'Nhập lại',
         'Save'                     => 'Lưu',
         'Edit Seller'              => 'Sửa sạp',
@@ -73,4 +73,5 @@ return array(
         'Remaining Capital'        => 'Vốn còn',
         'Report by month'          => 'THỐNG KÊ THEO THÁNG',
         'Report by seller'         => 'THỐNG KÊ THEO SẠP',
+        'Recheck form'             => 'LỔI: Hãy kiểm tra các con số!',
 );

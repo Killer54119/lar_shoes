@@ -27,14 +27,14 @@ class SellerInvoice extends AbstractModel
      * Validation
      */
     public $rules = array(
-        'seller_id' => 'required|',
-		'image' => '',
-        'quality' => '',
-        'cost_price' => '',
-        'selling_price' => '',
-        'profits' => '',
-        'payment' => '',
-        'debt_total' => '',
+        'seller_id' => 'required',
+        'image' => '',
+        'quality' => 'integer',
+        'cost_price' => 'integer',
+        'selling_price' => 'integer',
+        'profits' => 'integer',
+        'payment' => 'integer',
+        'debt_total' => 'integer',
         'invoice_note' => '',
     );
 

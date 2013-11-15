@@ -58,32 +58,14 @@ return array(
         'mysql' => array(
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'laravel_gen',
+            'database' => 'test_sh',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => 'tbl_',
             'profile' => true
-        ),
-        'pgsql' => array(
-            'driver' => 'pgsql',
-            'host' => 'localhost',
-            'database' => 'database',
-            'username' => 'root',
-            'password' => '',
-            'charset' => 'utf8',
-            'prefix' => '',
-            'schema' => 'public',
-        ),
-        'sqlsrv' => array(
-            'driver' => 'sqlsrv',
-            'host' => 'localhost',
-            'database' => 'database',
-            'username' => 'root',
-            'password' => '',
-            'prefix' => '',
-        ),
+        )
     ),
     /*
       |--------------------------------------------------------------------------
