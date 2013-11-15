@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : local
 Source Server Version : 50532
 Source Host           : localhost:3306
-Source Database       : laravel_gen
+Source Database       : test_shoes
 
 Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2013-11-14 22:46:30
+Date: 2013-11-17 10:40:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -187,8 +187,6 @@ CREATE TABLE `tbl_share_holder` (
 -- ----------------------------
 -- Records of tbl_share_holder
 -- ----------------------------
-INSERT INTO `tbl_share_holder` VALUES ('1', 'Hoàng Phúc', 'Đồng Nai', '28/9:   Rút 1000\r\n12/10: Rút 2000 - Đám cưới Lập\r\n18/10: Rút 4000\r\n26/10: Rút 500 - Sửa xe', '20860', '0907933886', '2013-10-31 09:09:21', '2013-11-10 20:34:32');
-INSERT INTO `tbl_share_holder` VALUES ('2', 'Kim Liên', '410B/16 Hậu Giang', '26/09: Thêm 30000\r\n9/10:   Thêm 30000\r\n4/11:   Rút    1000', '59000', '01669133398', '2013-10-31 09:09:26', '2013-11-10 20:38:20');
 
 -- ----------------------------
 -- Table structure for `tbl_share_holder_cost`
@@ -208,30 +206,30 @@ CREATE TABLE `tbl_share_holder_cost` (
 -- ----------------------------
 INSERT INTO `tbl_share_holder_cost` VALUES ('1', '12/10 Lệch sổ', '270', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
 INSERT INTO `tbl_share_holder_cost` VALUES ('2', '18/10 Thu thiếu Hoàng Trân', '500', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('3', 'Xăng', '100', '2013-10-01 20:45:11', '2013-11-10 20:50:07');
-INSERT INTO `tbl_share_holder_cost` VALUES ('4', '2kg bọc', '76', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('3', 'Xăng', '100', '2013-10-01 20:45:11', '2013-10-01 20:50:07');
+INSERT INTO `tbl_share_holder_cost` VALUES ('4', '2kg bọc', '76', '2013-10-01 20:45:11', '2013-10-01 20:50:07');
 INSERT INTO `tbl_share_holder_cost` VALUES ('5', 'Xăng, DT, Bốc xếp', '500', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('6', 'Bị phạt giao thông', '500', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('7', 'Xăng', '80', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('8', 'Xăng', '500', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('9', 'Boa', '15', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('10', 'Xăng', '420', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('11', 'Xăng', '90', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('12', 'Thay bình xe novo', '275', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('13', 'Đám ma', '200', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('14', 'Xăng, DT, Bốc xếp', '420', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('15', 'SN Hoàng Trân', '500', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('16', 'Xe, sửa', '3000', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('17', 'Xăng 90, gửi xe', '150', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('18', 'Phí lên mẫu dép', '500', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('19', 'Xăng, DT, Bốc xếp', '370', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('20', 'Bia SN bé Thu', '205', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('21', 'Bao hiem xe', '100', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('22', 'Xăng, DT, Bốc xếp', '450', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('23', 'Xăng, gửi xe', '150', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('24', 'Thay sên', '200', '2013-10-01 20:45:11', '2013-10-01 20:45:11');
-INSERT INTO `tbl_share_holder_cost` VALUES ('25', 'Liên điện thoại', '200', '2013-11-10 20:45:17', '2013-11-10 20:45:17');
-INSERT INTO `tbl_share_holder_cost` VALUES ('26', 'Xăng, DT, Bốc xếp', '400', '2013-11-10 20:45:22', '2013-11-10 20:45:22');
-INSERT INTO `tbl_share_holder_cost` VALUES ('27', 'Bị phạt giao thông', '200', '2013-11-10 20:45:30', '2013-11-10 20:45:30');
-INSERT INTO `tbl_share_holder_cost` VALUES ('28', 'Khuôn đế', '60', '2013-11-10 20:45:43', '2013-11-10 20:45:30');
-INSERT INTO `tbl_share_holder_cost` VALUES ('29', 'Xăng, DT, Bốc xếp', '300', '2013-11-11 15:36:00', '2013-11-11 15:36:00');
+INSERT INTO `tbl_share_holder_cost` VALUES ('6', 'Bị phạt giao thông', '500', '2013-10-01 20:45:11', '2013-10-02 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('7', 'Xăng', '80', '2013-10-01 20:45:11', '2013-10-04 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('8', 'Xăng', '500', '2013-10-01 20:45:11', '2013-10-10 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('9', 'Boa', '15', '2013-10-01 20:45:11', '2013-10-12 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('10', 'Xăng', '420', '2013-10-01 20:45:11', '2013-10-15 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('11', 'Xăng', '90', '2013-10-01 20:45:11', '2013-10-15 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('12', 'Thay bình xe novo', '275', '2013-10-01 20:45:11', '2013-10-17 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('13', 'Đám ma', '200', '2013-10-01 20:45:11', '2013-10-19 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('14', 'Xăng, DT, Bốc xếp', '420', '2013-10-01 20:45:11', '2013-10-19 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('15', 'SN Hoàng Trân', '500', '2013-10-01 20:45:11', '2013-10-19 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('16', 'Xe, sửa', '3000', '2013-10-01 20:45:11', '2013-10-19 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('17', 'Xăng 90, gửi xe', '150', '2013-10-01 20:45:11', '2013-10-24 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('18', 'Phí lên mẫu dép', '500', '2013-10-01 20:45:11', '2013-10-24 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('19', 'Xăng, DT, Bốc xếp', '370', '2013-10-01 20:45:11', '2013-10-25 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('20', 'Bia SN bé Thu', '205', '2013-10-01 20:45:11', '2013-10-29 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('21', 'Bao hiem xe', '100', '2013-10-01 20:45:11', '2013-10-29 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('22', 'Xăng, DT, Bốc xếp', '450', '2013-10-01 20:45:11', '2013-10-31 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('23', 'Xăng, gửi xe', '150', '2013-10-01 20:45:11', '2013-10-31 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('24', 'Thay sên', '200', '2013-10-01 20:45:11', '2013-10-31 20:45:11');
+INSERT INTO `tbl_share_holder_cost` VALUES ('25', 'Liên điện thoại', '200', '2013-11-10 20:45:17', '2013-11-04 20:45:17');
+INSERT INTO `tbl_share_holder_cost` VALUES ('26', 'Xăng, DT, Bốc xếp', '400', '2013-11-10 20:45:22', '2013-11-05 20:45:22');
+INSERT INTO `tbl_share_holder_cost` VALUES ('27', 'Bị phạt giao thông', '200', '2013-11-10 20:45:30', '2013-11-05 20:45:30');
+INSERT INTO `tbl_share_holder_cost` VALUES ('28', 'Khuôn đế', '60', '2013-11-10 20:45:43', '2013-11-07 20:45:30');
+INSERT INTO `tbl_share_holder_cost` VALUES ('29', 'Xăng, DT, Bốc xếp', '300', '2013-11-11 15:36:00', '2013-11-10 15:36:00');

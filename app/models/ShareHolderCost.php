@@ -45,7 +45,7 @@ class ShareHolderCost extends AbstractModel
             'cost' => "{$this->tbl}.cost = '{{param}}'",
             'cost_for' => "{$this->tbl}.cost_for LIKE '%{{param}}%'",
             'created_at' => "{$this->tbl}.created_at LIKE '%{{param}}%'",
-            'updated_at' => "{$this->tbl}.updated_at LIKE '%{{param}}%'",
+            'updated_at' => "MONTH(updated_at) = '{{param}}'",
         );
 
         /* Define fields to sort */

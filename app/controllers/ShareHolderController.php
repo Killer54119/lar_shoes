@@ -60,7 +60,7 @@ class ShareHolderController extends BaseController
         if ($valid->passes())
         {
             $this->_model->create($input);
-            Notification::success('The share-holder was created.');
+            Notification::success(MyLang::out('Saved at ').date('d-m'));
             return Redirect::route('share-holder.create');
         }
 
@@ -99,7 +99,7 @@ class ShareHolderController extends BaseController
         {
             $row = $this->_model->find($id);
             $row->update($input);
-            Notification::success('The share-holder was updated.');
+            Notification::success(MyLang::out('Saved at ').date('d-m'));
             return Redirect::route('share-holder.edit', $id);
         }
 
@@ -108,17 +108,4 @@ class ShareHolderController extends BaseController
                                ->withInput();
     }
 
-   /**
-    * Action to delete 1 record (tbl_share_holder) in db
-    * @param int $id
-    *
-    * @return Redirect to index page
-    */
-    public function destroy($id)
-    {
-        $this->_model->find($id)->delete();
-        Notification::success('The share-holder was deleted.');
-
-        return Redirect::route('share-holder.index');
-    }
 }

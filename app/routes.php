@@ -1,7 +1,6 @@
 <?php
 Route::get('/', 'SellerInvoiceController@create');
 
-
 //*************************************************************
 Route::any('/seller/search', 'SellerController@index');
 Route::any('/seller/get', 'SellerController@get');
@@ -21,6 +20,7 @@ Route::resource('share-holder', 'ShareHolderController');
 Route::any('/share-holder-cost/search', 'ShareHolderCostController@index');
 Route::resource('share-holder-cost', 'ShareHolderCostController');
 
-
 //*************************************************************
 Route::any('/report', 'ReportController@remainingCapital');
+Route::any('/report/by-month', 'ReportController@byMonth');
+Route::any('/report/by-seller', 'ReportController@bySeller');

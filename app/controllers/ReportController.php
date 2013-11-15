@@ -10,12 +10,31 @@ class ReportController extends BaseController
 		$model = new SellerInvoice();
 		$viewData = array(
 			'title'    => MyLang::out('Report'),
-			'reportSeller' => $model->reportSeller(),
 			'reportShareHolder' => $model->reportShareHolder(),
 			'totalCapital' => DB::table('share_holder')->sum('share_holder_capital'),
 		);
 		return View::make('report.remaining-capital', $viewData);
 	}
 	
+	public function byMonth(){
+		$model = new SellerInvoice();
+		$viewData = array(
+			'title'    => MyLang::out('Report'),
+			'reportShareHolder' => $model->reportShareHolder(),
+			'totalCapital' => DB::table('share_holder')->sum('share_holder_capital'),
+		);
+		return View::make('report.by-month', $viewData);
+	}
+	
+	public function bySeller(){
+		$model = new SellerInvoice();
+		$viewData = array(
+			'title'    => MyLang::out('Report'),
+			'reportSeller' => $model->reportSeller(),
+			'totalCapital' => DB::table('share_holder')->sum('share_holder_capital'),
+		);
+		return View::make('report.by-seller', $viewData);
+	}
 
+	
 }

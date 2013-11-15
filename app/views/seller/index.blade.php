@@ -17,7 +17,7 @@ $options = array(
 <!-- List all seller -->
 <div class="row-fluid show-grid">
     <div class="span12">
-        <table width="100%" class="table striped table-bordered table-condensed">
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr class="info">
                     @foreach ($options as $k => $v)                        
@@ -39,9 +39,9 @@ $options = array(
 								{{ $row->seller_name }}
 							</a>
                         </td>
-                        <td>{{ number_format($row->paid_total) }}</td>
-                        <td><b>{{ number_format($row->debt_total) }}</b></td>
-						<td>{{ number_format($row->debt_other_total) }}</td>                        
+                        <td class="text-right">{{ number_format($row->paid_total) }}</td>
+                        <td class="text-right"><b>{{ number_format($row->debt_total) }}</b></td>
+						<td class="text-right">{{ number_format($row->debt_other_total) }}</td>                        
                     </tr>
                 <?php } ?>
             </tbody>

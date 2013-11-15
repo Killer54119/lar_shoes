@@ -15,9 +15,9 @@
     <tr>
         <td colspan="2">
 			<a href="/share-holder-cost" class="btn"><?=MyLang::out('Back')?></a>
-            <button type="reset"  class="btn" ><i class="icon-refresh"></i> {{ MyLang::out('Reset') }}</button>
-            <button type="submit" class="btn btn-primary" ><i class="icon-ok-circle icon-white"></i> {{ MyLang::out('Save') }}</button>    
-	</td>
+            <button type="reset"  class="btn" >{{ MyLang::out('Reset') }}</button>
+            <button type="submit" class="btn btn-primary" >{{ MyLang::out('Save') }}</button>    
+		</td>
     </tr>
 </table>
         

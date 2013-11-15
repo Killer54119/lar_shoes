@@ -27,14 +27,14 @@ class SellerInvoice extends AbstractModel
      * Validation
      */
     public $rules = array(
-        'seller_id' => 'required|',
-		'image' => '',
-        'quality' => '',
-        'cost_price' => '',
-        'selling_price' => '',
-        'profits' => '',
-        'payment' => '',
-        'debt_total' => '',
+        'seller_id' => 'required',
+        'image' => '',
+        'quality' => 'integer',
+        'cost_price' => 'integer',
+        'selling_price' => 'integer',
+        'profits' => 'integer',
+        'payment' => 'integer',
+        'debt_total' => 'integer',
         'invoice_note' => '',
     );
 
@@ -88,7 +88,7 @@ class SellerInvoice extends AbstractModel
         $select = $this->createSQL($_select, $params);
         $select->join('seller', 'seller.seller_id', '=', 'seller_invoice.seller_id');
         $select->select($this->table . '.*', 'seller_name');
-        $select->orderBy('invoice_id', 'desc');
+        $select->orderBy('created_at', 'desc');
         return $select->paginate($this->perPage);
     }
 
@@ -136,7 +136,8 @@ class SellerInvoice extends AbstractModel
 					AVG(profits) as profits_avg,
 					SUM(quality * profits) as profits,
 					SUM(IF(is_return, quality * cost_price, 0)) as total_return,
-					SUM(quality * cost_price) as paymentToFactory,
+					SUM(IF((quality > 0) AND (is_return = 0), 0, quality * cost_price)) as total_not_return,
+					SUM(IF((quality > 0),quality * cost_price, 0)) as paymentToFactory,
 					SUM(payment) as payment,
 					SUM(DISTINCT tbl_seller.debt_total) as debt_total,
 					SUM(DISTINCT tbl_seller.debt_other_total) as debt_other_total

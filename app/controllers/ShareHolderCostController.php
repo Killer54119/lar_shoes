@@ -60,7 +60,7 @@ class ShareHolderCostController extends BaseController
         if ($valid->passes())
         {
             $this->_model->create($input);
-            Notification::success('The share-holder-cost was created.');
+            Notification::success(MyLang::out('Saved at ').date('d-m'));
             return Redirect::route('share-holder-cost.create');
         }
 
@@ -99,7 +99,7 @@ class ShareHolderCostController extends BaseController
         {
             $row = $this->_model->find($id);
             $row->update($input);
-            Notification::success('The share-holder-cost was updated.');
+            Notification::success(MyLang::out('Saved at ').date('d-m'));
             return Redirect::route('share-holder-cost.edit', $id);
         }
 

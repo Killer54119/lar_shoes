@@ -2,7 +2,7 @@
 
 <?php
 $options = array(
-	'updated_at' => 'Updated At',
+	'updated_at' => 'Month',
     'cost_for' => 'Cost For',
     'cost' => 'Cost',
 );
@@ -14,19 +14,13 @@ $options = array(
 <!-- List all share-holder-cost -->
 <div class="row-fluid show-grid">
     <div class="span12">
-        <table width="100%" class="table striped table-bordered table-condensed">
-            <thead>
-                <tr class="info">
-                    @foreach ($options as $k => $v)                        
-                    {{ Header::out($k, $v) }}
-                    @endforeach
-                </tr>
-            </thead>
-
+        <table class="table table-striped table-bordered">
             <tbody>
                 <?php
+				$total_cost = 0;
                 foreach ($results as $row)
                 {
+					$total_cost += $row->cost;
                     $_primaryKey = $row->cost_id;
                     ?>
                     <tr>
@@ -40,6 +34,17 @@ $options = array(
                     </tr>
                 <?php } ?>
             </tbody>
+            <thead>
+				<tr class="info">
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>{{ number_format($total_cost) }}</td>
+                <tr class="info">
+                    @foreach ($options as $k => $v)                        
+                    {{ Header::out($k, $v) }}
+                    @endforeach
+                </tr>
+            </thead>			
         </table>
 
         <!-- Paging  -->

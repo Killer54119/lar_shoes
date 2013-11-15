@@ -87,10 +87,11 @@ class SellerInvoiceController extends BaseController
 				Input::file('image')->move($path . '/large', $input['image']);
 				
 				$image = new Image($path . '/large/' . $input['image']);
-				$image->resize(100,100);
+				$image->resize(150,150);
 				$image->save($input['image'], $path . '/small');
 			}
 			
+			$input['created_at'] = strtotime($input['created_at']);
             $this->_model->create($input);
 			
 			/* Update debt_total on selller */
@@ -100,7 +101,7 @@ class SellerInvoiceController extends BaseController
 				'debt_total' => $input['debt_total'])				
 			);
 			
-            Notification::success('The seller-invoice was created.');
+            Notification::success(MyLang::out('Saved at ').date('d-m'));
             return Redirect::route('seller-invoice.create');
         }
 
@@ -109,58 +110,4 @@ class SellerInvoiceController extends BaseController
                                ->withInput();
     }
 
-   /**
-    * Action to show edit page tbl_seller_invoice.
-    * @param int $id
-    * @return
-    */
-    public function edit($id)
-    {
-        $viewData = array(
-            'title' => MyLang::out('Edit Seller Invoice'),
-            'results' => $this->_model->findOrFail($id)
-        );
-
-        return View::make('seller-invoice.edit', $viewData);
-    }
-
-   /**
-    * Action to update record (tbl_seller_invoice) in db
-    * @param int $id
-    *
-    * @return Redirect to edit page again and show message success or errors
-    */
-    public function update($id)
-    {
-        $input = $this->getAllInput();
-        $valid = Validator::make($input, $this->_model->rules);
-
-        if ($valid->passes())
-        {
-            $row = $this->_model->find($id);
-            $row->update($input);
-            Notification::success('The seller-invoice was updated.');
-            return Redirect::route('seller-invoice.edit', $id);
-        }
-
-        return Redirect::route('seller-invoice.edit', $id)
-                               ->withErrors($valid->errors())
-                               ->withInput();
-    }
-
-   /**
-    * Action to delete 1 record (tbl_seller_invoice) in db
-    * @param int $id
-    *
-    * @return Redirect to index page
-    */
-    public function updateReturn()
-    {
-		$id = Input::get('id', null);
-		if($id){
-			$row = $this->_model->find($id);
-			$row->update(array('is_return' => Input::get('is_return', 0)));
-		}
-		return Redirect::back();
-    }
 }

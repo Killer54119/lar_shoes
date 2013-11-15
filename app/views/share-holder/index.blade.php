@@ -15,7 +15,7 @@ $options = array(
 <!-- List all share-holder -->
 <div class="row-fluid show-grid">
     <div class="span12">
-        <table width="100%" class="table striped table-bordered table-condensed">
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr class="info">
                     @foreach ($options as $k => $v)                        
@@ -30,7 +30,7 @@ $options = array(
                 {
                     $_primaryKey = $row->share_holder_id;
                     ?>
-                    <tr  {{ $row->share_holder_note ? 'class="error"' : ''}}>
+                    <tr>
                         <td><small>{{ date('d/m', strtotime($row->updated_at)) }}</small></td>					
                         <td>
 							<a href="/share-holder/<?= $_primaryKey ?>/edit">

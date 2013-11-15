@@ -7,7 +7,7 @@
 	
     <tr>
         <td >{{ MyLang::out('Share Holder Capital') }}</td>
-        <td class="numbersOnly">{{ Form::text('share_holder_capital') }}</td>
+        <td>{{ Form::text('share_holder_capital') }}</td>
     </tr>	
 	
     <tr>
@@ -29,8 +29,8 @@
     <tr>
         <td colspan="2">
 			<a href="/share-holder" class="btn"><?=MyLang::out('Back')?></a>
-            <button type="reset"  class="btn" ><i class="icon-refresh"></i> {{ MyLang::out('Reset') }}</button>
-            <button type="submit" class="btn btn-primary" ><i class="icon-ok-circle icon-white"></i> {{ MyLang::out('Save') }}</button>    
+            <button type="reset"  class="btn" >{{ MyLang::out('Reset') }}</button>
+            <button type="submit" class="btn btn-primary" >{{ MyLang::out('Save') }}</button>    
         </td>
     </tr>
 </table>

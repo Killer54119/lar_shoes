@@ -57,8 +57,8 @@ class SellerController extends BaseController
 
         if ($valid->passes())
         {
-            $this->_model->create($input);
-            Notification::success('The seller was created.');
+            $this->_model->create($input);			
+             Notification::success(MyLang::out('Saved at ').date('d-m'));
             return Redirect::route('seller.create');
         }
 
@@ -97,7 +97,7 @@ class SellerController extends BaseController
         {
             $row = $this->_model->find($id);
             $row->update($input);
-            Notification::success('The seller was updated.');
+            Notification::success(MyLang::out('Saved at ').date('d-m'));
             return Redirect::route('seller.edit', $id);
         }
 
