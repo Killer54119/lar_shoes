@@ -1,14 +1,25 @@
 <link href="{{{ asset('assets/css/datepicker.css') }}}" rel="stylesheet">
 <script src="{{{ asset('assets/js/bootstrap-datepicker.js') }}}"></script>
-			
-{{ Form::text('created_at', date('d-m-Y'), array('id'=>'created_at', 'class'=>'w-min')) }}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<i class="icon-user"></i>
-{{ Form::select('seller_id', 
-                Seller::lists('seller_name', 'seller_id'), 
-                isset($_COOKIE['seller_id']) ? $_COOKIE['seller_id'] : 1,
-                array('class' => 'w-min txt-large')
-                ) }}
+
+@if( isset($isEdit) )
+	<input class="w-min" readonly="readonly" type="text" value="{{ date('d-m-Y') }} ">	
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<i class="icon-user"></i>
+	{{ Form::select('seller_id', 
+					Seller::lists('seller_name', 'seller_id'), 
+					null,
+					array('class' => 'w-min txt-large')
+					) }}
+@else
+	{{ Form::text('created_at', date('d-m-Y'), array('id'=>'created_at', 'class'=>'w-min')) }}
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<i class="icon-user"></i>
+	{{ Form::select('seller_id', 
+					Seller::lists('seller_name', 'seller_id'), 
+					isset($_COOKIE['seller_id']) ? $_COOKIE['seller_id'] : 1,
+					array('class' => 'w-min txt-large')
+					) }}
+@endif
 <br>
 
 @if ($errors->any())
@@ -69,8 +80,6 @@
                 $('input[name=debt_total]').val(debt_total);
             });
 
-            /*Reset data*/
-            $('input[name=payment]').val('');
             setCookie('seller_id', $(this).val());
         });		
         $('select[name=seller_id]').change();
