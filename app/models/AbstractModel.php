@@ -15,7 +15,7 @@ class AbstractModel extends Eloquent {
     
     protected $sortFields;
     
-    protected $perPage = 100;
+    protected $perPage = 20;
     
     public function createSQL($select, $params) {
         $andWhere = array();

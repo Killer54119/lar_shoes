@@ -10,8 +10,13 @@
         td.text-right{text-align:right}
         .required:after{color:red;content:"*"}
         .icon-chevron-up,.icon-chevron-down{filter:alpha(opacity=20);opacity:0.2}
+<<<<<<< HEAD
         .w-min{width:70px}
         .w-medium{width:127px}
+=======
+        .w-min{width:83px}
+        .w-nedium{width:127px}
+>>>>>>> origin/master
         .w-large{width:260px}
         .txt-large{color:red;font-size:16px;font-weight:700}
         .left{float:left;padding-right:5px}
@@ -42,8 +47,13 @@
         });        
     </script>
 </head>
+<<<<<<< HEAD
 
 <body>
+=======
+    
+<body data-spy="scroll">
+>>>>>>> origin/master
     <div class="navbar navbar-inverse">
         <div class="navbar-inner">
             <div class="container">
