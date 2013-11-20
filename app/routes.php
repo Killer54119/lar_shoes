@@ -24,3 +24,7 @@ Route::resource('share-holder-cost', 'ShareHolderCostController');
 Route::any('/report', 'ReportController@remainingCapital');
 Route::any('/report/by-month', 'ReportController@byMonth');
 Route::any('/report/by-seller', 'ReportController@bySeller');
+
+//*************************************************************
+Route::any('/backup', 'BackupController@database');
+
