@@ -30,22 +30,16 @@
 <div class="alert-info">
     <div class="row-fluid">
         <div class="left">
-			{{ MyLang::out('Quality') }}
-			<div>
-				<input class="w-min" type="number" name="quality" value="<?php echo isset($results->quality) ? $results->quality : '';?>">
-			</div>
+                {{ MyLang::out('Quality') }}
+                <div>{{ Form::text('quality', null, array('class'=>'w-min')) }}</div>
         </div>
         <div class="left">
-            {{ MyLang::out('Cost Price') }}
-			<div>
-				<input class="w-min" type="number" name="cost_price" value="<?php echo isset($results->cost_price) ? $results->cost_price : '';?>">
-			</div>				
+                {{ MyLang::out('Cost Price') }}
+                <div>{{ Form::text('cost_price', null, array('class'=>'w-min')) }}</div>
         </div>
         <div class="left">
-            {{ MyLang::out('Selling Price') }}
-			<div>
-				<input class="w-min" type="number" name="selling_price" value="<?php echo isset($results->selling_price) ? $results->selling_price : '';?>">
-			</div>
+                {{ MyLang::out('Selling Price') }}
+                 <div>{{ Form::text('selling_price', null, array('class'=>'w-min')) }}</div>
         </div>
     </div>
     <input type="file" size="15" name="image">
@@ -56,9 +50,7 @@
     <div class="row-fluid">
         <div class="left">
             {{ MyLang::out('Payment') }}
-			<div>
-				<input class="w-medium" type="number" name="payment" value="<?php echo isset($results->payment) ? $results->payment : '';?>">
-			</div>			
+            <div>{{ Form::text('payment', null, array('class'=>'w-medium')) }}</div>
         </div>
         <div class="left">
             {{ MyLang::out('Debt Total') }}

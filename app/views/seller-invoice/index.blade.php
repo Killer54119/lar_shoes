@@ -28,10 +28,8 @@ $options = array(
             <tbody>
                 <?php foreach ($results as $row) { ?>
                     <tr id="{{ $row->invoice_id  }}"<?php echo $row->invoice_note ? "class='error'" : ''?>>
-                        <td>
-                            <a href="/seller-invoice/{{ $row->invoice_id  }}/edit">
-								<small>{{ date('d/m', strtotime($row->created_at)) }}</small>
-							</a>
+                        <td>                            
+							<small>{{ date('d/m', strtotime($row->created_at)) }}</small>							
                             <br>{{ Common::showName($row->seller_id, $row->seller_name) }}
                         </td>
 
