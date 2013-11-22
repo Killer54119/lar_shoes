@@ -7,23 +7,29 @@
 	
     <tr>
         <td >{{ MyLang::out('Share Holder Capital') }}</td>
-        <td>{{ Form::text('share_holder_capital') }}</td>
+        <td class="numbersOnly">
+			{{ Form::text('share_holder_capital', null, array('readonly'=>'readonly', 'id'=>'capital')) }}			
+		</td>
     </tr>	
 	
-    <tr>
+    <!-- tr>
         <td >{{ MyLang::out('Share Holder Address') }}</td>
         <td>{{ Form::text('share_holder_address') }}</td>
-
     </tr>
 	
 	<tr>
         <td >{{ MyLang::out('Phone') }}</td>
         <td>{{ Form::text('phone') }}</td>        
-    </tr>
+    </tr-->
 	
     <tr>
         <td >{{ MyLang::out('Share Holder Note') }}</td>
-        <td>{{ Form::textarea('share_holder_note') }}</td>
+        <td>
+			<input type="text" class="content" value="<?php echo date('d/m')?>: " /><br/>
+			<input type="number" class="money w-medium" placeholder="Số tiền" />
+			<span class="btn btn-success btn-small btnAddCapital" ><i class="icon-plus icon-white"></i>&nbsp;</span><br/>
+			{{ Form::textarea('share_holder_note', null, array('readonly'=>'readonly')) }}		
+		</td>
     </tr>
 
     <tr>
@@ -35,11 +41,37 @@
     </tr>
 </table>
 
-@if ($errors->any())
+
 <script>
-    $(function() {
-        errorMessages = <?= json_encode($errors->getMessages()) ?>;
-        Common.showError(errorMessages);
-    });
+$(function() {
+	@if ($errors->any())
+	errorMessages = <?= json_encode($errors->getMessages()) ?>;
+	Common.showError(errorMessages);
+	@endif
+	
+	$('.btnAddCapital').click(function(){
+	    $('.money').removeClass('error');
+	
+		if (($('.money').val() == '') || ($('.content').val() == '') ) {
+			$('.money').addClass('error');
+			return;
+		}
+		
+		$('#capital').val(parseInt($('#capital').val()) + parseInt($('.money').val()));
+		
+		var newValue = $('textarea[name=share_holder_note]').val() + "\n" + 		               
+					   strPad($('.money').val(),6) + 
+					   ' [' + $('.content').val() + ']';
+		$('textarea[name=share_holder_note]').val(newValue);
+		
+	});
+});
+
+function strPad(i,l) {
+	var o = i.toString();
+	while (o.length < l) {
+		o += ' ';
+	}
+	return o;
+};
 </script>
-@endif

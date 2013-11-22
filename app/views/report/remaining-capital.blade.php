@@ -33,6 +33,7 @@ echo '<br>Tong thu: '.($total_in);
 echo '<br>Tong chi: '.($total_out);
 echo '<br>Da tra hang: '.($total_return);
 echo '<br>Chi phi: '.($total_cost);
+echo '<br>No so: '.($total_debit);
 
 $total_in  = $total_in +  abs($total_return);
 $total_out = $total_out + $total_cost;

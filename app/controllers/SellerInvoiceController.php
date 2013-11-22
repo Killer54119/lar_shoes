@@ -99,7 +99,7 @@ class SellerInvoiceController extends BaseController
 				'debt_total' => $input['debt_total'])				
 			);
 			
-            Notification::success(MyLang::out('Saved at ').date('d-m'));
+            Notification::success(MyLang::out('Saved at ').date('d-m', $input['created_at']));
             return Redirect::route('seller-invoice.create');
         }
 

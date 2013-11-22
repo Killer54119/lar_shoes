@@ -26,5 +26,5 @@ Route::any('/report/by-month', 'ReportController@byMonth');
 Route::any('/report/by-seller', 'ReportController@bySeller');
 
 //*************************************************************
-Route::any('/backup', 'BackupController@database');
+Route::any('/backup/db', 'BackupController@database');
 

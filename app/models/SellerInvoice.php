@@ -27,12 +27,12 @@ class SellerInvoice extends AbstractModel
      * Validation
      */
     public $rules = array(
-        'seller_id' => 'required',
+        'seller_id' => 'required|integer',
         'image' => '',
         'quality' => 'integer',
         'cost_price' => 'integer',
         'selling_price' => 'integer',
-        'profits' => 'integer',
+        'profits' => 'integer|min:0',
         'payment' => 'integer',
         'debt_total' => 'integer',
         'invoice_note' => '',
@@ -103,7 +103,7 @@ class SellerInvoice extends AbstractModel
         $select = $this->createSQL($_select, $params);
         $select->join('seller', 'seller.seller_id', '=', 'seller_invoice.seller_id');
         $select->select($this->table . '.*', 'seller_name');
-        $select->orderBy('invoice_id', 'desc');
+        $select->orderBy('created_at', 'desc');
         return $select->paginate($this->perPage);
     }
 	

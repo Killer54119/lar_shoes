@@ -48,7 +48,7 @@ $options = array(
         </table>
 
         <!-- Paging  -->
-        {{ $results->links() }}
+        {{ $results->appends($params)->links() }}
 
     </div>
 </div>

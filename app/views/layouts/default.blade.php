@@ -17,6 +17,7 @@
         .left{float:left;padding-right:5px}
         .gray{color:#B8A3A3!important}
         .red{color:red}
+		.error{border:2px solid #F00!important}
         .month1{background:#dff0d8}
         .txt-debt-total{font-size: 14px; font-weight: bold; color: #F00!important }
     </style>
@@ -37,7 +38,7 @@
         }
         $(function(){
             $('.numbersOnly input').keyup(function () { 
-                this.value = this.value.replace(/[^0-9\.]/g,'');
+                this.value = this.value.replace(/[^0-9-\.]/g,'');
             });
         });        
     </script>
@@ -58,6 +59,8 @@
                         <li><a href="/share-holder-cost">{{ MyLang::out('Share Holder Cost') }}</a></li> 
                         <li><a href="/share-holder">{{ MyLang::out('Share Holder') }}</a></li>
                         <li><a href="/report">{{ MyLang::out('Report') }}</a></li>
+						<li><a href="/backup/db">{{ MyLang::out('Backup database') }}</a></li>
+						
                     </ul>
                 </div>
             </div>

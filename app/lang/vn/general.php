@@ -74,7 +74,7 @@ return array(
         'Report by month'          => 'THỐNG KÊ THEO THÁNG',
         'Report by seller'         => 'THỐNG KÊ THEO SẠP',
 		
-        'Recheck form'             => 'LỔI: Hãy kiểm tra các con số!',
+        'Recheck form'             => 'LỔI: Kiểm tra thông tin nhập!',
         'Saved at '                => 'Đã lưu vào ngày ',
 
         'Total Money'              => 'T.Tiền',
@@ -82,4 +82,5 @@ return array(
         'ByMonth'                  => 'Theo tháng',
         'BySeller'                 => 'Theo sạp',
         'Not Return'               => 'Hàng trả',
+        'Backup database'          => 'Sao lưu dữ liệu',
 );
