@@ -10,7 +10,7 @@
         td.text-right{text-align:right}
         .required:after{color:red;content:"*"}
         .icon-chevron-up,.icon-chevron-down{filter:alpha(opacity=20);opacity:0.2}
-        .w-min{width:83px}
+        .w-min{width:85px}
         .w-medium{width:127px}
         .w-large{width:260px}
         .txt-large{color:red;font-size:16px;font-weight:700}
@@ -20,6 +20,7 @@
 		.error{border:2px solid #F00!important}
         .month1{background:#dff0d8}
         .txt-debt-total{font-size: 14px; font-weight: bold; color: #F00!important }
+        .cal-quick-cost, .cal-quick-selling {font-size: 12px;}
     </style>
 
     <script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>

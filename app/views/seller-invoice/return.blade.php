@@ -25,7 +25,7 @@ $isReturn = array(
 {{ Form::select('seller_id', 
                 Seller::lists('seller_name', 'seller_id'), 
                 $sellerId, 
-                array('class' => 'w-min txt-large')
+                array('class' => 'w-medium txt-large')
                 ) }}
 <script>
 $(function() {
@@ -62,7 +62,9 @@ function changeTo(obj, value){
                     ?>
                     <tr {{ $row->invoice_note ? 'class="error"' : ''}} id="{{$_primaryKey}}" >
                         <td>
+                                <a href="/seller-invoice/{{ $row->invoice_id  }}/edit">
                                 <small>{{ date('d/m', strtotime($row->created_at)) }}</small>
+                                </a>
 								<br>{{ Common::showName($row->seller_id, $row->seller_name) }}
                         </td>
 

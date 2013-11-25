@@ -13,7 +13,7 @@ class BackupController extends BaseController
         $path = Common::backupDatabase();
 
         echo file_exists($path) ? 'Sao lưu thành công' : 'Sao lưu ko được';
-        echo '<hr>' . file_get_contents($path);
+        //echo '<hr>' . file_get_contents($path);
         exit();
 	}
 	

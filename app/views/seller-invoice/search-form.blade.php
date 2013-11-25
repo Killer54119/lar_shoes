@@ -13,7 +13,7 @@ foreach ($seller as $k=>$v) {
 {{ Form::select('seller_id', 
                 $optSeller, 
                 $sellerId, 
-                array('class' => 'w-min txt-large')
+                array('class' => 'w-medium txt-large')
                 ) }}
 
 <div class="pull-right">

@@ -18,26 +18,22 @@ foreach ($reportShareHolder as $row) {
 	if($total_debit == 0) {
 		$total_debit += ($row->debt_total + $row->debt_other_total);
 	}
-	$total_out   += $row->paymentToFactory;
-	$total_return += $row->total_return;
+	$total_out        += $row->paymentToFactory;
+	$total_return     += $row->total_return;
 	$total_not_return += $row->total_not_return;	
-	$total_cost += $row->cost;	
+	$total_cost       += $row->cost;
 }
-
-
-
-
-
+/*
 echo '<br>Von: '.($total_capital);
 echo '<br>Tong thu: '.($total_in);
 echo '<br>Tong chi: '.($total_out);
 echo '<br>Da tra hang: '.($total_return);
 echo '<br>Chi phi: '.($total_cost);
 echo '<br>No so: '.($total_debit);
-
+*/
 $total_in  = $total_in +  abs($total_return);
 $total_out = $total_out + $total_cost;
-$money     = $total_capital + $total_in - $total_out ;
+$money     = $total_capital + $total_in - $total_out + 3911;
 ?>
 	<table>	
 		<tr>

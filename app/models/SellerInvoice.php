@@ -89,6 +89,7 @@ class SellerInvoice extends AbstractModel
         $select->join('seller', 'seller.seller_id', '=', 'seller_invoice.seller_id');
         $select->select($this->table . '.*', 'seller_name');
         $select->orderBy('created_at', 'desc');
+        $select->orderBy('seller_invoice.seller_id', 'desc');
         return $select->paginate($this->perPage);
     }
 

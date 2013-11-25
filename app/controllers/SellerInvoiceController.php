@@ -133,6 +133,35 @@ class SellerInvoiceController extends BaseController
     */
     public function update($id)
     {
+        $note = Input::get('invoice_note', '');
+        /*Image*/
+        if(Input::hasFile('image') || $note) {
+             if(Input::hasFile('image')){
+                $input['image'] = time() . '_' . Input::file('image')->getClientOriginalName();
+                $path = base_path() . '/assets/products';
+                Input::file('image')->move($path . '/large', $input['image']);
+
+                $image = new Image($path . '/large/' . $input['image']);
+                $image->resize(150,150);
+                $image->save($input['image'], $path . '/small');
+             }
+
+            if($note){
+                $input['invoice_note'] = $note;
+            }
+
+            $row = $this->_model->find($id);
+            $row->update($input);
+
+            Notification::success(MyLang::out('Saved at ').date('d-m'));
+            return Redirect::route('seller-invoice.edit', $id);
+        }
+        return Redirect::route('seller-invoice.edit', $id)
+            ->withInput();
+    }
+    /*
+    public function update($id)
+    {
         $input = $this->getAllInput();
         $valid = Validator::make($input, $this->_model->rules);
 	
@@ -142,7 +171,7 @@ class SellerInvoiceController extends BaseController
 			$debtLastday = $oldInvoice->quality * $oldInvoice->selling_price;
 			$oldInvoice->debt_total += ($oldInvoice->payment - $debtLastday);
 			
-			/************* RESET data *********************/
+			// ************* RESET data *********************
 			$seller = Seller::find($oldInvoice->seller_id);
             $seller->update(array(
 				'paid_total' => $seller->paid_total - $oldInvoice->payment,
@@ -152,12 +181,12 @@ class SellerInvoiceController extends BaseController
 			$oldInvoice->payment = 0;
 			$oldInvoice->save();
 			
-			/************* UDPATE data *********************/
-			/*Calculate data*/
+			// ************* UDPATE data *********************
+			// Calculate data
 			$debtToday = $input['quality'] * $input['selling_price'];
 			$input['debt_total'] += ($debtToday - $input['payment']);
 			
-			/*Image*/
+			//Image
 			if(Input::hasFile('image')) {
 				$input['image'] = time() . '_' . Input::file('image')->getClientOriginalName();
 				$path = base_path() . '/assets/products';
@@ -172,7 +201,7 @@ class SellerInvoiceController extends BaseController
 
             $row->update($input);
 			
-			/* Update debt_total on selller */
+			// Update debt_total on selller
 			$seller = Seller::find($input['seller_id']);
             $seller->update(array(
 				'paid_total' => $seller->paid_total + $input['payment'],
@@ -188,6 +217,6 @@ class SellerInvoiceController extends BaseController
                                ->withErrors($valid->errors())
                                ->withInput();
     }
-	
+	*/
 	
 }

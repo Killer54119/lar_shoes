@@ -8,17 +8,10 @@ foreach ($seller as $k=>$v) {
 }
 ?>
 
-@if( isset($isEdit) )
-	<input class="w-min" readonly="readonly" type="text" value="{{ date('d-m-Y') }} ">	
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<i class="icon-user"></i>
-	{{ Form::select('seller_id', Seller::lists('seller_name', 'seller_id'), null, array('class' => 'w-min txt-large') ) }}
-@else
-	{{ Form::text('created_at', date('d-m-Y'), array('id'=>'created_at', 'class'=>'w-min')) }}
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<i class="icon-user"></i>
-	{{ Form::select('seller_id', $optSeller, null, array('class' => 'w-min txt-large')	)}}
-@endif
+{{ Form::text('created_at', date('d-m-Y'), array('id'=>'created_at', 'class'=>'w-min')) }}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i class="icon-user"></i>
+{{ Form::select('seller_id', $optSeller, null, array('class' => 'w-medium txt-large')	)}}
 <br>
 
 @if ($errors->any())
@@ -35,13 +28,13 @@ foreach ($seller as $k=>$v) {
 			</div>
         </div>
         <div class="left">
-            {{ MyLang::out('Cost Price') }}
+            {{ MyLang::out('Cost Price') }} <span class="gray cal-quick-cost">0</span>
 			<div>
 				<input class="w-min" type="number" name="cost_price" value="<?php echo isset($results->cost_price) ? $results->cost_price : '';?>">
-			</div>				
+			</div>
         </div>
         <div class="left">
-            <b>{{ MyLang::out('Selling Price') }}</b>
+            {{ MyLang::out('Selling Price') }} <span class="gray cal-quick-selling">0</span>
 			<div>
 				<input class="w-min" type="number" name="selling_price" value="<?php echo isset($results->selling_price) ? $results->selling_price : '';?>">
 			</div>
@@ -73,9 +66,6 @@ foreach ($seller as $k=>$v) {
 <button type="submit" class="btn btn-primary" >{{ MyLang::out('Save') }}</button>  
 
 
-{{ Form::hidden('profits') }}
-
-
 <script>
     var debt_total = 0;
     $(function() {        
@@ -87,7 +77,18 @@ foreach ($seller as $k=>$v) {
                 $('input[name=debt_total]').val(debt_total);
             });
         });
-		
+        /*Quick calculate*/
+        $('input[name=cost_price]').keyup(function(){
+            $('.cal-quick-cost').html($('input[name=quality]').val() * $(this).val());
+        });
+        $('input[name=selling_price]').keyup(function(){
+            $('.cal-quick-selling').html($('input[name=quality]').val() * $(this).val());
+        });
+        $('input[name=quality]').keyup(function(){
+            $('.cal-quick-cost').html($('input[name=cost_price]').val() * $(this).val());
+            $('.cal-quick-selling').html($('input[name=selling_price]').val() * $(this).val());
+        });
+
 		$('#created_at').datepicker({			
 			 weekStart: 1,
              autoclose: true,

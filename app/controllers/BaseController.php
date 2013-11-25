@@ -16,7 +16,7 @@ class BaseController extends Controller {
 	}
 	
 	public function getAllInput(){
-		$except = array('_method','_token');
+		$except = array('_method','_token', 'page');
 		return array_except(Input::all(), $except);
 	}
 	
