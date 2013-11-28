@@ -47,15 +47,19 @@ foreach ($seller as $k=>$v) {
 <div class="alert-info">
     <div class="row-fluid">
         <div class="left">
-            {{ MyLang::out('Payment') }}
-			<div>
-				<input class="w-medium" type="number" name="payment" value="<?php echo isset($results->payment) ? $results->payment : '';?>">
-			</div>			
+            {{ MyLang::out('Debt Total') }}
+            <div>
+				{{ Form::text('debt_total', null, array('class'=>'w-min txt-debt-total', 'readonly'=>'readonly')) }}
+				<b style="vertical-align: top;line-height: 28px;">-</b>
+			</div>
         </div>
         <div class="left">
-            {{ MyLang::out('Debt Total') }}
-            <div>{{ Form::text('debt_total', null, array('class'=>'w-medium txt-debt-total', 'readonly'=>'readonly')) }}</div>
-        </div>
+            {{ MyLang::out('Payment') }}
+			<div>
+				<input class="w-min" type="number" name="payment" value="<?php echo isset($results->payment) ? $results->payment : '';?>">
+				= <span class="cal-quick-debt-total"></span>
+			</div>			
+        </div>		
     </div>
     {{ MyLang::out('Invoice Note') }}<br>{{ Form::text('invoice_note', null, array('class'=>'w-large')) }}
 </div>
@@ -67,28 +71,21 @@ foreach ($seller as $k=>$v) {
 
 
 <script>
-    var debt_total = 0;
     $(function() {        
         /* Get debt_total */
         $('select[name=seller_id]').change(function() {
             $('input[name=debt_total]').val('---');
             $.get('/seller/get?field=debt_total&id=' + $(this).val(), function(res){
-                debt_total = res;
-                $('input[name=debt_total]').val(debt_total);
+                $('input[name=debt_total]').val(res);
             });
-        });
+        });		
+		
         /*Quick calculate*/
-        $('input[name=cost_price]').keyup(function(){
-            $('.cal-quick-cost').html($('input[name=quality]').val() * $(this).val());
-        });
-        $('input[name=selling_price]').keyup(function(){
-            $('.cal-quick-selling').html($('input[name=quality]').val() * $(this).val());
-        });
-        $('input[name=quality]').keyup(function(){
-            $('.cal-quick-cost').html($('input[name=cost_price]').val() * $(this).val());
-            $('.cal-quick-selling').html($('input[name=selling_price]').val() * $(this).val());
-        });
-
+        $('input[name=cost_price]').keyup(function() { quickCal(); });
+        $('input[name=selling_price]').keyup(function() { quickCal(); });
+        $('input[name=quality]').keyup(function() { quickCal(); });
+        $('input[name=payment]').keyup(function() { quickCal(); });		
+		
 		$('#created_at').datepicker({			
 			 weekStart: 1,
              autoclose: true,
@@ -122,4 +119,19 @@ foreach ($seller as $k=>$v) {
 		
     });
 	
+	function quickCal() {
+		var qty   = parseInt($('input[name=quality]').val());
+		var cost  = parseInt($('input[name=cost_price]').val());
+		var today = qty * parseInt($('input[name=selling_price]').val());
+		var debt  = parseInt($('input[name=debt_total]').val());
+		var pay   = parseInt($('input[name=payment]').val());
+		
+		if( isNaN(today) ) { today = 0 } 
+		if( isNaN(debt) )  { debt = 0  }
+		if( isNaN(pay) )   { pay = 0   }
+		
+		$('.cal-quick-cost').html(qty * cost);
+		$('.cal-quick-selling').html(today);
+		$('.cal-quick-debt-total').html(debt - pay + today);
+	}
 </script>

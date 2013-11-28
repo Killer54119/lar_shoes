@@ -82,10 +82,12 @@ class SellerInvoiceController extends BaseController
 			if(Input::hasFile('image')) {
 				$input['image'] = time() . '_' . Input::file('image')->getClientOriginalName();
 				$path = base_path() . '/assets/products';
-				Input::file('image')->move($path . '/large', $input['image']);
 				
-				$image = new Image($path . '/large/' . $input['image']);
-				$image->resize(150,150);
+				$image = new Image($_FILES["image"]["tmp_name"]);
+				$image->resize(500,500);
+				$image->save($input['image'], $path . '/large');
+				
+				$image->resize(100,100);
 				$image->save($input['image'], $path . '/small');
 			}
 			
@@ -139,11 +141,13 @@ class SellerInvoiceController extends BaseController
              if(Input::hasFile('image')){
                 $input['image'] = time() . '_' . Input::file('image')->getClientOriginalName();
                 $path = base_path() . '/assets/products';
-                Input::file('image')->move($path . '/large', $input['image']);
-
-                $image = new Image($path . '/large/' . $input['image']);
-                $image->resize(150,150);
-                $image->save($input['image'], $path . '/small');
+				
+				$image = new Image($_FILES["image"]["tmp_name"]);
+				$image->resize(500,500);
+				$image->save($input['image'], $path . '/large');
+				
+				$image->resize(100,100);
+				$image->save($input['image'], $path . '/small');
              }
 
             if($note){

@@ -29,14 +29,16 @@ $options = array(
 				<tr id="{{ $row->invoice_id  }}"<?php echo $row->invoice_note ? "class='error'" : ''?>>
 					<td>                            
 						<a href="/seller-invoice/{{ $row->invoice_id  }}/edit">
-                            <small>{{ date('d/m', strtotime($row->created_at)) }}</small>
-                        </a>
-						<br>{{ Common::showName($row->seller_id, $row->seller_name) }}
+                            <small>{{ date('d/m', strtotime($row->created_at)) }}</small>                        
+							<br>{{ Common::showName($row->seller_id, $row->seller_name) }}
+						</a>
 					</td>
 
 					<td> 
 						@if($row->image)
+						<a href="/assets/products/large/{{ $row->image }}" target="_blank">
 							<img width=60 height=60 src="/assets/products/small/{{ $row->image }}">
+						</a>
 						@endif
 					</td>
 

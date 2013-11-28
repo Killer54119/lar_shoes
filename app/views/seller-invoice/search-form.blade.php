@@ -18,12 +18,12 @@ foreach ($seller as $k=>$v) {
 
 <div class="pull-right">
 	
-	<a href="/seller-invoice/return" class="btn btn-small btn-danger">
+	<a href="/seller-invoice/return" class="btn btn-danger">
         <i class="icon-ban-circle icon-white"></i>&nbsp;
     </a>
 	&nbsp;&nbsp;&nbsp;
 	
-    <a href="/seller-invoice/create" class="btn btn-small btn-success">
+    <a href="/seller-invoice/create" class="btn btn-success">
         <i class="icon-plus icon-white"></i>&nbsp;
     </a>
 </div>
