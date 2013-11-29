@@ -170,6 +170,27 @@ class SellerInvoice extends AbstractModel
 		}
 		return $newOne;
 	}
-	
+
+    /**
+     * Get data to send email to shareholder
+     * @return mixed
+     */
+    public function reportByDate(){
+        $sql = 'SELECT
+                    seller_name,
+                    quality,
+                    selling_price,
+                    payment,
+                    tbl_seller.debt_total,
+                    invoice_note
+                FROM
+                  tbl_seller_invoice
+                INNER JOIN tbl_seller ON tbl_seller_invoice.seller_id = tbl_seller.seller_id
+                WHERE  DATE(tbl_seller_invoice.created_at) = DATE(NOW())
+                ORDER BY seller_name';
+
+        return DB::select($sql);
+    }
+
 }
 
